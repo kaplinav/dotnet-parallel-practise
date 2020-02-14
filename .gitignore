@@ -1,0 +1,4 @@
+*.bat
+test/
+lab[0-9]/bin/
+lab[0-9]/obj/

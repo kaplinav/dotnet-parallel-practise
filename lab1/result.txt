@@ -1,0 +1,50 @@
+CORES: 4
+LINEAR
+time for n=10 0,00252
+time for n=100 0,03152
+time for n=1000 0,2248
+time for n=1000000 255,66366
+
+PARALLEL: RANGE WITHOUT COMPLEXITY
+time for n=10 m=2 21,4076
+time for n=10 m=3 22,51886
+time for n=10 m=4 44,49804
+time for n=10 m=5 68,95692
+time for n=10 m=10 144,52338
+time for n=100 m=2 12,59726
+time for n=100 m=3 29,59654
+time for n=100 m=4 54,0615
+time for n=100 m=5 69,42028
+time for n=100 m=10 122,24212
+time for n=1000 m=2 20,04606
+time for n=1000 m=3 34,51366
+time for n=1000 m=4 53,2325
+time for n=1000 m=5 60,26828
+time for n=1000 m=10 116,31106
+time for n=1000000 m=2 83,27348
+time for n=1000000 m=3 65,98554
+time for n=1000000 m=4 83,43544
+time for n=1000000 m=5 93,5341
+time for n=1000000 m=10 206,23774
+
+PARALLEL: RANGE WITH COMPLEXITY
+time for n=10 m=2 10,80164
+time for n=10 m=3 26,52932
+time for n=10 m=4 37,54938
+time for n=10 m=5 46,71146
+time for n=10 m=10 132,19718
+time for n=100 m=2 12,0897
+time for n=100 m=3 49,96724
+time for n=100 m=4 37,1503
+time for n=100 m=5 49,92356
+time for n=100 m=10 125,22086
+time for n=1000 m=2 35,08878
+time for n=1000 m=3 28,3124
+time for n=1000 m=4 36,74694
+time for n=1000 m=5 62,71326
+time for n=1000 m=10 122,76656
+time for n=1000000 m=2 180,10028
+time for n=1000000 m=3 172,15906
+time for n=1000000 m=4 238,40722
+time for n=1000000 m=5 234,25238
+time for n=1000000 m=10 357,89924
