@@ -2,3 +2,11 @@
 test/
 lab[0-9]/bin/
 lab[0-9]/obj/
+lab[0-9]_/bin/
+lab[0-9]_/obj/
+lab2_/bin/
+lab2_/obj/
+ParallelForTest/
+poolTest/
+ProcessTextFiles/
+ThreadPoolTest/
