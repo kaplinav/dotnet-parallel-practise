@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 15 for Windows Desktop
+# Visual Studio 15
 VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab1", "lab1\lab1.csproj", "{082827B2-09DD-4D2C-92C8-66EE16A2254B}"
@@ -8,14 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab2", "lab2\lab2.csproj", "{A5CF7E9A-3116-4145-89D9-46E8B012C2DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab2_", "lab2_\lab2_.csproj", "{1277B42A-9C10-456C-8300-0C8BBA6A3201}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadPoolTest", "ThreadPoolTest\ThreadPoolTest.csproj", "{F005F6DD-AF60-4E56-AF70-39C97F7AE127}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelForTest", "ParallelForTest\ParallelForTest.csproj", "{64852DD6-0F1A-4A86-A3F6-BFAE2EF8918F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "poolTest", "poolTest\poolTest.csproj", "{A37DDC31-4F90-4998-87F6-C0E24170637A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessTextFiles", "ProcessTextFiles\ProcessTextFiles.csproj", "{6531CA53-C3CD-4BD1-8F54-826C94304DB9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab4", "lab4\lab4.csproj", "{6B12A7A9-1FD2-4402-B256-66E7F56A9098}"
 EndProject
@@ -37,22 +29,6 @@ Global
 		{1277B42A-9C10-456C-8300-0C8BBA6A3201}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1277B42A-9C10-456C-8300-0C8BBA6A3201}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1277B42A-9C10-456C-8300-0C8BBA6A3201}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F005F6DD-AF60-4E56-AF70-39C97F7AE127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F005F6DD-AF60-4E56-AF70-39C97F7AE127}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F005F6DD-AF60-4E56-AF70-39C97F7AE127}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F005F6DD-AF60-4E56-AF70-39C97F7AE127}.Release|Any CPU.Build.0 = Release|Any CPU
-		{64852DD6-0F1A-4A86-A3F6-BFAE2EF8918F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64852DD6-0F1A-4A86-A3F6-BFAE2EF8918F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64852DD6-0F1A-4A86-A3F6-BFAE2EF8918F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64852DD6-0F1A-4A86-A3F6-BFAE2EF8918F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A37DDC31-4F90-4998-87F6-C0E24170637A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A37DDC31-4F90-4998-87F6-C0E24170637A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A37DDC31-4F90-4998-87F6-C0E24170637A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A37DDC31-4F90-4998-87F6-C0E24170637A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6531CA53-C3CD-4BD1-8F54-826C94304DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6531CA53-C3CD-4BD1-8F54-826C94304DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6531CA53-C3CD-4BD1-8F54-826C94304DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6531CA53-C3CD-4BD1-8F54-826C94304DB9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6B12A7A9-1FD2-4402-B256-66E7F56A9098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6B12A7A9-1FD2-4402-B256-66E7F56A9098}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B12A7A9-1FD2-4402-B256-66E7F56A9098}.Release|Any CPU.ActiveCfg = Release|Any CPU

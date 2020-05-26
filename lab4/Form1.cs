@@ -21,7 +21,6 @@ namespace lab4
         /* selected file */
         private string m_fileName = null;
         
-
         public Form1()
         {
             InitializeComponent();
@@ -45,75 +44,30 @@ namespace lab4
             m_fileName = openDialog.FileName;
         }
 
-        /* get common statistics by word frequency in text */
-        private void showCommonWordStat()
-        {
-            /* read text from file */
-            string fileAllText = File.ReadAllText(m_fileName);
-
-            if (fileAllText == null)
-                return;
-
-            /* split text on words by delimiter */
-            string[] fileAllWords = fileAllText.Split(Delimiter);
-            /* <key - word, value - freequency of word in text > */
-            Dictionary<string, uint> wordsFreq = new Dictionary<string, uint>();
-
-            foreach (string item in fileAllWords)
-            {
-                string word = item.Trim(trimSymbols).ToUpper();
-                uint freq = 0;
-                if (wordsFreq.TryGetValue(word, out freq))
-                    wordsFreq[word] = ++wordsFreq[word];
-                else
-                    wordsFreq.Add(word, 1);
-            }
-
-            /* sort by value descending */
-            var outList = wordsFreq.ToList();
-            outList.Sort((pair1, pair2) => pair2.Value.CompareTo(pair1.Value));
-
-            /* result to screen */
-            foreach (var item in outList)
-                textOutLines.AppendText(item.Key + ": " + item.Value + Environment.NewLine);
-        }
-
-        /* get distribution of word by length in text */
-        private void showDistributionWordLength()
-        {
-            /* read text from file */
-            string fileAllText = File.ReadAllText(m_fileName);
-
-            if (fileAllText == null)
-                return;
-
-            /* split text on words by delimiter */
-            string[] fileAllWords = fileAllText.Split(Delimiter);
-            /* <key - length of word, value - freequency of word in text > */
-            SortedDictionary<uint, uint> lengthFreq = new SortedDictionary<uint, uint>();
-
-            foreach (var item in fileAllWords)
-            {
-                string word = item.Trim(trimSymbols).ToUpper();
-                uint value = 0;
-                if (lengthFreq.TryGetValue((uint)word.Length, out value))
-                    lengthFreq[(uint)word.Length] = ++lengthFreq[(uint)word.Length];
-                else
-                    lengthFreq.Add((uint)word.Length, 1);
-            }
-
-            /* sort by value descending */
-            var outList = lengthFreq.ToList();
-            outList.Sort((pair1, pair2) => pair2.Value.CompareTo(pair1.Value));
-
-            /* result to screen */
-            foreach (var item in outList)
-                textOutLines.AppendText(item.Key + ": " + item.Value + Environment.NewLine);
-        }
-
         private void buttonRun_Click(object sender, EventArgs e)
         {
-            
+            if (m_fileName == null)
+                return;
+
+            ILabTask task = null;
+
+            /* choose an algorithm */
+            if (rLinear.Checked)
+                task = new AlgLinear(m_fileName);
+            else if (rLINQ.Checked)
+                task = new AlgLINQ(m_fileName);
+            else if (rParallel.Checked)
+                task = new AlgParallelFor(m_fileName);
+            else if (rPLINQ.Checked)
+                task = new AlgPLINQ(m_fileName);
+
+            /* choose a task */
+            if (rCommonStat.Checked)
+                task.showCommonWordStat(textOutLines);
+            else if (rTenMostFrequent.Checked)
+                task.showTenMostFrequent(textOutLines);
+            else if (rDistributingLength.Checked)
+                task.showDistributionWordLength(textOutLines);
 
             Console.Beep();
         }
