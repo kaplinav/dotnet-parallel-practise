@@ -23,19 +23,21 @@ namespace lab4
             if (fileAllText == null)
                 return;
 
+            /* convert the string into an array of words */
+            string[] fileAllWords = fileAllText.ToUpper().Split(new char[] { '.', '?', '!', ' ', ';', ':', ',', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
             /* split text on words by delimiter */
-            string[] fileAllWords = fileAllText.Split(Delimiter);
+            //string[] fileAllWords = fileAllText.Split(Delimiter);
             /* <key - word, value - freequency of word in text > */
             Dictionary<string, uint> wordsFreq = new Dictionary<string, uint>();
 
             foreach (string item in fileAllWords)
             {
-                string word = item.Trim(trimSymbols).ToUpper();
                 uint freq = 0;
-                if (wordsFreq.TryGetValue(word, out freq))
-                    wordsFreq[word] = ++wordsFreq[word];
+                if (wordsFreq.TryGetValue(item, out freq))
+                    wordsFreq[item] = ++wordsFreq[item];
                 else
-                    wordsFreq.Add(word, 1);
+                    wordsFreq.Add(item, 1);
             }
 
             /* sort by value descending */
@@ -57,19 +59,22 @@ namespace lab4
             if (fileAllText == null)
                 return;
 
+            /* convert the string into an array of words */
+            string[] fileAllWords = fileAllText.ToUpper().Split(new char[] { '.', '?', '!', ' ', ';', ':', ',', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
             /* split text on words by delimiter */
-            string[] fileAllWords = fileAllText.Split(Delimiter);
+            //string[] fileAllWords = fileAllText.Split(Delimiter);
+
             /* <key - length of word, value - freequency of word in text > */
             SortedDictionary<uint, uint> lengthFreq = new SortedDictionary<uint, uint>();
 
             foreach (var item in fileAllWords)
             {
-                string word = item.Trim(trimSymbols).ToUpper();
                 uint value = 0;
-                if (lengthFreq.TryGetValue((uint)word.Length, out value))
-                    lengthFreq[(uint)word.Length] = ++lengthFreq[(uint)word.Length];
+                if (lengthFreq.TryGetValue((uint)item.Length, out value))
+                    lengthFreq[(uint)item.Length] = ++lengthFreq[(uint)item.Length];
                 else
-                    lengthFreq.Add((uint)word.Length, 1);
+                    lengthFreq.Add((uint)item.Length, 1);
             }
 
             /* sort by value descending */
@@ -91,19 +96,22 @@ namespace lab4
             if (fileAllText == null)
                 return;
 
+            /* convert the string into an array of words */
+            string[] fileAllWords = fileAllText.ToUpper().Split(new char[] { '.', '?', '!', ' ', ';', ':', ',', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
             /* split text on words by delimiter */
-            string[] fileAllWords = fileAllText.Split(Delimiter);
+            //string[] fileAllWords = fileAllText.Split(Delimiter);
+
             /* <key - word, value - freequency of word in text > */
             Dictionary<string, uint> wordsFreq = new Dictionary<string, uint>();
 
             foreach (string item in fileAllWords)
             {
-                string word = item.Trim(trimSymbols).ToUpper();
                 uint freq = 0;
-                if (wordsFreq.TryGetValue(word, out freq))
-                    wordsFreq[word] = ++wordsFreq[word];
+                if (wordsFreq.TryGetValue(item, out freq))
+                    wordsFreq[item] = ++wordsFreq[item];
                 else
-                    wordsFreq.Add(word, 1);
+                    wordsFreq.Add(item, 1);
             }
 
             /* sort by value descending */

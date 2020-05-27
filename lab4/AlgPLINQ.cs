@@ -23,7 +23,7 @@ namespace lab4
                 return;
 
             /* convert the string into an array of words */
-            string[] words = fileAllText.ToUpper().Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = fileAllText.ToUpper().Split(new char[] { '.', '?', '!', ' ', ';', ':', ',', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             var outList = words
                          .AsParallel()
                          .GroupBy(w => w)
@@ -46,7 +46,7 @@ namespace lab4
                 return;
 
             /* convert the string into an array of words */
-            string[] words = fileAllText.ToUpper().Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = fileAllText.ToUpper().Split(new char[] { '.', '?', '!', ' ', ';', ':', ',', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             var outList = words
                          .AsParallel()
                          .GroupBy(w => w.Length)
@@ -69,7 +69,7 @@ namespace lab4
                 return;
 
             /* convert the string into an array of words */
-            string[] words = fileAllText.ToUpper().Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = fileAllText.ToUpper().Split(new char[] { '.', '?', '!', ' ', ';', ':', ',', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             var outList = words
                          .AsParallel()
                          .GroupBy(w => w)

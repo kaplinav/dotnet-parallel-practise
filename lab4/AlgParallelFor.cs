@@ -23,8 +23,8 @@ namespace lab4
             if (fileAllText == null)
                 return;
 
-            /* split text on words by delimiter */
-            string[] fileAllWords = fileAllText.Split(Delimiter);
+            /* convert the string into an array of words */
+            string[] fileAllWords = fileAllText.ToUpper().Split(new char[] { '.', '?', '!', ' ', ';', ':', ',', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             /* <key - word, value - freequency of word in text > */
             ConcurrentDictionary<string, uint> wordsFreq = new ConcurrentDictionary<string, uint>();
 
@@ -57,8 +57,8 @@ namespace lab4
             if (fileAllText == null)
                 return;
 
-            /* split text on words by delimiter */
-            string[] fileAllWords = fileAllText.Split(Delimiter);
+            /* convert the string into an array of words */
+            string[] fileAllWords = fileAllText.ToUpper().Split(new char[] { '.', '?', '!', ' ', ';', ':', ',', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             /* <key - length of word, value - freequency of word in text > */
             ConcurrentDictionary<uint, uint> lengthFreq = new ConcurrentDictionary<uint, uint>();
 
@@ -91,8 +91,8 @@ namespace lab4
             if (fileAllText == null)
                 return;
 
-            /* split text on words by delimiter */
-            string[] fileAllWords = fileAllText.Split(Delimiter);
+            /* convert the string into an array of words */
+            string[] fileAllWords = fileAllText.ToUpper().Split(new char[] { '.', '?', '!', ' ', ';', ':', ',', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             /* <key - word, value - freequency of word in text > */
             ConcurrentDictionary<string, uint> wordsFreq = new ConcurrentDictionary<string, uint>();
 
