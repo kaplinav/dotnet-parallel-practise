@@ -70,6 +70,11 @@ namespace lab5
             if (!e.Cancelled)
                 textBoxTime.Text = ((double)e.Result).ToString();
 
+            rLinear.Enabled = true;
+            rParallel.Enabled = true;
+            radioAsceSort.Enabled = true;
+            radioDescSort.Enabled = true;
+            radioUnSort.Enabled = true;
             buttonPlus.Enabled = true;
             buttonMinus.Enabled = true;
             buttonStart.Enabled = true;
@@ -88,6 +93,11 @@ namespace lab5
             /* clear the time label */
             textBoxTime.Text = "0";
 
+            rLinear.Enabled = false;
+            rParallel.Enabled = false;
+            radioAsceSort.Enabled = false;
+            radioDescSort.Enabled = false;
+            radioUnSort.Enabled = false;
             buttonPlus.Enabled = false;
             buttonMinus.Enabled = false;
             buttonStart.Enabled = false;
