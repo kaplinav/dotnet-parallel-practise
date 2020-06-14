@@ -128,13 +128,18 @@ namespace lab5
         
             return sortingType;
         }
-
+    
+    /* LINEAR */
     /* this is the method that does the actual work */
     private double doWorkLinear(BackgroundWorker worker, DoWorkEventArgs e)
         {
             /* create input data source */
             m_inputData = new InputData(Int32.Parse(textBoxCount.Text), getSortingType());
             int bucketsCount = 10;
+
+            /* to start timer */
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
 
             /* create buckets */
             List<int>[] buckets = new List<int>[bucketsCount];
@@ -148,10 +153,6 @@ namespace lab5
                 int bucketIndex = (m_inputData.m_numbers[i] / d);
                 buckets[bucketIndex].Add(m_inputData.m_numbers[i]);
             }
-
-            /* to start timer */
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
 
             List<int> sortedList = new List<int>();
             /* sort each bucket and add it to the result List */
@@ -178,12 +179,17 @@ namespace lab5
             return ts.TotalMilliseconds;
         }
 
+        /* PARALLEL */
         /* this is the method that does the actual work */
         private double doWorkParallel(BackgroundWorker worker, DoWorkEventArgs e)
         {
             /* create input data source */
             m_inputData = new InputData(Int32.Parse(textBoxCount.Text), getSortingType());
             int bucketsCount = 10;
+
+            /* to start timer */
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
 
             /* create buckets */
             List<int>[] buckets = new List<int>[bucketsCount];
@@ -195,21 +201,17 @@ namespace lab5
             int numbersPerBucket = m_inputData.m_numbers.Length / bucketsCount;
             Parallel.For(0, bucketsCount, index =>
             {
+                int minElement = index * numbersPerBucket;
+                int maxElement = minElement + numbersPerBucket + 1;
+
                 for (int i = 0; i < m_inputData.m_numbers.Length; i++)
                 {
-                    int minElement = i * numbersPerBucket;
-                    int maxElement = i * numbersPerBucket + numbersPerBucket + 1;
-
                     /* add number to bucket */
                     if (m_inputData.m_numbers[i] >= minElement && m_inputData.m_numbers[i] < maxElement)
                         buckets[index].Add(m_inputData.m_numbers[i]);
                 }
             });
             
-            /* to start timer */
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-
             List<int> sortedList = new List<int>();
             /* sort each bucket and add it to the result List */
             Parallel.For(0, bucketsCount, (index, state) =>
