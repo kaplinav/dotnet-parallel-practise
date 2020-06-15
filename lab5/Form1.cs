@@ -85,11 +85,18 @@ namespace lab5
         private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             this.progressBar.Value = e.ProgressPercentage;
+
+            if (e.UserState != null)
+                textBoxResult.Text = (string)e.UserState;
+
         }
 
         /* start the sorting if pressed */
         private void buttonStart_Click(object sender, EventArgs e)
         {
+            /* clear the result label */
+            textBoxResult.Text = String.Empty;
+
             /* clear the time label */
             textBoxTime.Text = "0";
 
@@ -111,6 +118,8 @@ namespace lab5
         private void buttonStop_Click(object sender, EventArgs e)
         {
             this.progressBar.Value = 0;
+            
+
             /* cancel the asynchronous operation */
             m_BgWorker.CancelAsync();
         }
@@ -154,6 +163,7 @@ namespace lab5
                 buckets[bucketIndex].Add(m_inputData.m_numbers[i]);
             }
 
+            int progress = 0;
             List<int> sortedList = new List<int>();
             /* sort each bucket and add it to the result List */
             for (int i = 0; i < bucketsCount; i++)
@@ -169,12 +179,33 @@ namespace lab5
                 sortedList.AddRange(buckets[i]);
 
                 /* eport progress as a percentage of the total task */
-                worker.ReportProgress((int)((float)i / (float)bucketsCount * 100));
+                progress = (int)((float)i / (float)bucketsCount * 100);
+                worker.ReportProgress(progress);
             }
 
             /* to stop timer. get time of work */
             sw.Stop();
             TimeSpan ts = sw.Elapsed;
+
+            /* show result message if work is not cancelled */
+            if (!worker.CancellationPending)
+            {
+                bool isUnsorted = false;
+                int previous = 0;
+
+                foreach (int i in sortedList)
+                {
+                    if (previous > i)
+                    {
+                        isUnsorted = true;
+                        break;
+                    }
+                    previous = i;
+                }
+
+                string result = isUnsorted ? "Error: unsorted" : "OK: sorted";
+                worker.ReportProgress(progress, result);
+            }
 
             return ts.TotalMilliseconds;
         }
@@ -202,16 +233,19 @@ namespace lab5
             Parallel.For(0, bucketsCount, index =>
             {
                 int minElement = index * numbersPerBucket;
-                int maxElement = minElement + numbersPerBucket + 1;
+                //int maxElement = minElement + numbersPerBucket + 1;
+                int maxElement = minElement + numbersPerBucket;
+                minElement--;
 
                 for (int i = 0; i < m_inputData.m_numbers.Length; i++)
                 {
                     /* add number to bucket */
-                    if (m_inputData.m_numbers[i] >= minElement && m_inputData.m_numbers[i] < maxElement)
+                    if (m_inputData.m_numbers[i] > minElement && m_inputData.m_numbers[i] <= maxElement)
                         buckets[index].Add(m_inputData.m_numbers[i]);
                 }
             });
-            
+
+            int progress = 0;
             List<int> sortedList = new List<int>();
             /* sort each bucket and add it to the result List */
             Parallel.For(0, bucketsCount, (index, state) =>
@@ -225,13 +259,13 @@ namespace lab5
 
                 buckets[index].Sort();
 
-                lock (additionLocker)
-                    sortedList.AddRange(buckets[index]);
+                //lock (additionLocker)
+                //    sortedList.AddRange(buckets[index]);
 
                 /* report progress as a percentage of the total task */
                 lock (progressLocker)
                 {
-                    int progress = (int)((float)index / (float)bucketsCount * 100);
+                    progress = (int)((float)index / (float)bucketsCount * 100);
 
                     if (progress > progressBar.Value)
                         worker.ReportProgress(progress);
@@ -239,9 +273,33 @@ namespace lab5
                 
             });
 
+            /* add content of each sorted bucket to list */
+            foreach (var item in buckets)
+                sortedList.AddRange(item);
+            
             /* to stop timer. get time of work */
             sw.Stop();
             TimeSpan ts = sw.Elapsed;
+
+            /* show result message if work is not cancelled */
+            if (!worker.CancellationPending)
+            {
+                bool isUnsorted = false;
+                int previous = 0;
+
+                foreach (int i in sortedList)
+                {
+                    if (previous > i)
+                    {
+                        isUnsorted = true;
+                        break;
+                    }
+                    previous = i;
+                }
+
+                string result = isUnsorted ? "Error: unsorted" : "OK: sorted";
+                worker.ReportProgress(progress, result);
+            }
 
             return ts.TotalMilliseconds;
         }

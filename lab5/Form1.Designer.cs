@@ -42,9 +42,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioAsceSort = new System.Windows.Forms.RadioButton();
-            this.radioDescSort = new System.Windows.Forms.RadioButton();
             this.radioUnSort = new System.Windows.Forms.RadioButton();
+            this.radioDescSort = new System.Windows.Forms.RadioButton();
+            this.radioAsceSort = new System.Windows.Forms.RadioButton();
+            this.textBoxResult = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -203,28 +205,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Input";
             // 
-            // radioAsceSort
-            // 
-            this.radioAsceSort.AutoSize = true;
-            this.radioAsceSort.Location = new System.Drawing.Point(7, 34);
-            this.radioAsceSort.Name = "radioAsceSort";
-            this.radioAsceSort.Size = new System.Drawing.Size(117, 20);
-            this.radioAsceSort.TabIndex = 0;
-            this.radioAsceSort.TabStop = true;
-            this.radioAsceSort.Text = "Sort Ascending";
-            this.radioAsceSort.UseVisualStyleBackColor = true;
-            // 
-            // radioDescSort
-            // 
-            this.radioDescSort.AutoSize = true;
-            this.radioDescSort.Location = new System.Drawing.Point(6, 86);
-            this.radioDescSort.Name = "radioDescSort";
-            this.radioDescSort.Size = new System.Drawing.Size(126, 20);
-            this.radioDescSort.TabIndex = 1;
-            this.radioDescSort.TabStop = true;
-            this.radioDescSort.Text = "Sort Descending";
-            this.radioDescSort.UseVisualStyleBackColor = true;
-            // 
             // radioUnSort
             // 
             this.radioUnSort.AutoSize = true;
@@ -237,11 +217,56 @@
             this.radioUnSort.Text = "Unsorted";
             this.radioUnSort.UseVisualStyleBackColor = true;
             // 
+            // radioDescSort
+            // 
+            this.radioDescSort.AutoSize = true;
+            this.radioDescSort.Location = new System.Drawing.Point(6, 86);
+            this.radioDescSort.Name = "radioDescSort";
+            this.radioDescSort.Size = new System.Drawing.Size(126, 20);
+            this.radioDescSort.TabIndex = 1;
+            this.radioDescSort.TabStop = true;
+            this.radioDescSort.Text = "Sort Descending";
+            this.radioDescSort.UseVisualStyleBackColor = true;
+            // 
+            // radioAsceSort
+            // 
+            this.radioAsceSort.AutoSize = true;
+            this.radioAsceSort.Location = new System.Drawing.Point(7, 34);
+            this.radioAsceSort.Name = "radioAsceSort";
+            this.radioAsceSort.Size = new System.Drawing.Size(117, 20);
+            this.radioAsceSort.TabIndex = 0;
+            this.radioAsceSort.TabStop = true;
+            this.radioAsceSort.Text = "Sort Ascending";
+            this.radioAsceSort.UseVisualStyleBackColor = true;
+            // 
+            // textBoxResult
+            // 
+            this.textBoxResult.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxResult.Location = new System.Drawing.Point(60, 228);
+            this.textBoxResult.Name = "textBoxResult";
+            this.textBoxResult.ReadOnly = true;
+            this.textBoxResult.Size = new System.Drawing.Size(453, 26);
+            this.textBoxResult.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(8, 233);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 16);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Result";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 238);
+            this.ClientSize = new System.Drawing.Size(525, 266);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBoxResult);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -286,6 +311,8 @@
         private System.Windows.Forms.RadioButton radioUnSort;
         private System.Windows.Forms.RadioButton radioDescSort;
         private System.Windows.Forms.RadioButton radioAsceSort;
+        private System.Windows.Forms.TextBox textBoxResult;
+        private System.Windows.Forms.Label label4;
     }
 }
 
